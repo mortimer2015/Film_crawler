@@ -6,12 +6,18 @@
 
 python3，下载安装请参考`https://www.python.org/`
 
-依赖的安装包有requests，安装方法`pip install requests`
-
-## 使用方法
+依赖包使用pipenv安装，pipenv的安装方法请参考`https://github.com/pypa/pipenv`
 
 ```bash
 git clone https://github.com/mortimer2015/Film_crawler.git
 cd Film_crawler
-python rq.py
+pipenv install
+```
+
+## 使用方法
+
+运行当前目录下的的`run.sh`文件
+
+```bash
+run.sh
 ```
