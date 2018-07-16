@@ -4,7 +4,7 @@
 
 ## 依赖
 
-python，下载安装请参考`https://www.python.org/`
+python3，下载安装请参考`https://www.python.org/`
 
 依赖的安装包有requests，安装方法`pip install requests`
 
