@@ -9,6 +9,8 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
+from .secrets import *
+
 BOT_NAME = 'apps'
 
 SPIDER_MODULES = ['apps.spiders']

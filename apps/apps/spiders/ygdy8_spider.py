@@ -3,6 +3,8 @@ import scrapy
 import requests
 from re import split
 
+from apps import settings
+
 
 class DmozSpider(scrapy.Spider):
 
@@ -22,12 +24,13 @@ class DmozSpider(scrapy.Spider):
                 for i in response.xpath('//td/b'):
                     url = i.xpath('a/@href').extract()[0]
                     name = i.xpath('a/text()').extract()[0]
+                    print(url, name)
                     if name not in file_list:
                         f.write('{}\n'.format(name))
                         tmp.write('{}{}\n'.format(base_name, url))
 
 
-token = 'YOUR TOKEN'
+token = settings.DINGTALK_TOKEN
 s = 'https://oapi.dingtalk.com/robot/send?access_token={}'.format(token)
 
 
@@ -62,4 +65,4 @@ class DetailSpider(scrapy.Spider):
             response.url
         )
         print(info)
-        # send_text(info)
+        send_text(info)

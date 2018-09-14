@@ -12,9 +12,13 @@ python3，下载安装请参考`https://www.python.org/`
 git clone https://github.com/mortimer2015/Film_crawler.git
 cd Film_crawler
 pipenv install
+pipenv shell
 ```
 
 ## 使用方法
+
+配置文件`cp apps/apps/secrets_example.py apps/apps/secrets.py`
+
 
 运行当前目录下的的`run.sh`文件
 
