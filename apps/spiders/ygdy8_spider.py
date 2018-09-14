@@ -32,10 +32,10 @@ class Ygdy8_Spider(CrawlSpider):
         movie_info = split('(<br>|<p>)', response.xpath('//p').extract()[4])
         info = ''
         with open(spider_get_data_path(site_domains), 'r+') as f:
-            already_download_movie_name = set(f.readlines())
+            already_download = set(f.readlines())
             for line in movie_info:
                 if name_start_time_compile.search(line) or name_compile.search(line):
-                    if '{}\n'.format(line) in already_download_movie_name:
+                    if '{}\n'.format(line) in already_download:
                         break
                     else:
                         f.write('{}\n'.format(line))
