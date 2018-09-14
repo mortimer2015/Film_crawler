@@ -1,3 +1,3 @@
 #!/bin/bash
-cd apps
+#cd apps
 scrapy crawl ygdy8_spider
