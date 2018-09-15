@@ -12,7 +12,7 @@ get_movie_link_c = re.compile(r'href="(.*)">ftp://.*')
 m_movie_c = re.compile(r"^\r\n<a href='(.*)'>(.*)</a>")
 movie_information_c = re.compile(u"^(◎.*)")
 s = 'https://oapi.dingtalk.com/robot/send?access_token=' \
-    '4440f102b8c8747d650145867c81c3f93ef8061e8a7bb4716b30e87932e9f4c2'
+    'YOUR TOKEN'
 
 
 def send_text(text):
@@ -90,7 +90,7 @@ def get_new_movie(page):
                         f.write('{}\n'.format(name.encode('utf8')))
                     # else:
                     #     print('已经下载了')
-    except Exception, e:
+    except Exception as e:
         print(traceback.format_exc(e))
         print('大佬，{}网站挂了！'.format('http://www.ygdy8.com/'))
 
