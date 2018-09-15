@@ -9,7 +9,7 @@ from apps import settings
 from helpers.dingtalk import send_text
 from helpers.tools import spider_get_data_path
 
-name_start_time_compile = compile(r'\[[0-9]{2}\.[0-9]{2}\].*')
+name_with_time_compile = compile(r'\[[0-9]{2}\.[0-9]{2}\].*')
 name_compile = compile(r'^\s*\[.*\]\s*$')
 url_xpath = '//tbody/tr/td/a/@href'
 movie_detail_view_xpath = '//td/b/a'
@@ -34,7 +34,7 @@ class Ygdy8_Spider(CrawlSpider):
         with open(spider_get_data_path(site_domains), 'r+') as f:
             already_download = set(f.readlines())
             for line in movie_info:
-                if name_start_time_compile.search(line) or name_compile.search(line):
+                if name_with_time_compile.search(line) or name_compile.search(line):
                     if '{}\n'.format(line) in already_download:
                         break
                     else:
