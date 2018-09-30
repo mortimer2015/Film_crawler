@@ -19,6 +19,7 @@ pipenv shell
 
 配置文件`cp apps/secrets_example.py apps/secrets.py`
 
+修改`apps/secrets.py`文件
 
 运行当前目录下的的`run.sh`文件
 
