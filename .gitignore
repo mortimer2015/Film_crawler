@@ -2,3 +2,4 @@
 secrets.py
 *.txt
 !default.txt
+Pipfile.lock
