@@ -7,13 +7,14 @@ from scrapy.spiders import CrawlSpider, Rule
 
 from apps import settings
 from helpers.dingtalk import send_text
-from helpers.tools import spider_get_data_path
+from helpers.tools import spider_get_data_path, get_movie_info
 
 name_with_time_compile = compile(r'\[[0-9]{2}\.[0-9]{2}\].*')
 name_compile = compile(r'^\s*\[.*\]\s*$')
 url_xpath = '//tbody/tr/td/a/@href'
 movie_detail_view_xpath = '//td/b/a'
 site_domains = 'www.ygdy8.com'
+info_features = ('◎简', '◎片')
 
 
 class Ygdy8_Spider(CrawlSpider):
@@ -28,8 +29,7 @@ class Ygdy8_Spider(CrawlSpider):
     )
 
     def parse_item(self, response):
-        # hardcode
-        movie_info = split('(<br>|<p>)', response.xpath('//p').extract()[4])
+        movie_info = split('(<br>|<p>)', get_movie_info(response.xpath('//p').extract(), info_features))
         info = ''
         with open(spider_get_data_path(site_domains), 'r+') as f:
             already_download = set(f.readlines())

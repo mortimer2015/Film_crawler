@@ -13,3 +13,11 @@ def spider_get_data_path(file_name='default', data_dir=settings.DATA_DIR):
         with open(file_path, 'w'):
             pass
     return file_path
+
+
+def get_movie_info(infos=None, info_features=None):
+    for info in infos:
+        for info_feature in info_features:
+            if info.find(info_feature) != -1:
+                return info
+    raise Exception('not found info')
